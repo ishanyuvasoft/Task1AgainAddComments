@@ -1,0 +1,30 @@
+<h1>Users Index</h1>
+
+<% if user_signed_in? %>
+  <% if current_user.has_role? :seller %>
+
+    <p> logged in as seller </p> 
+    <%= link_to "create product", new_user_product_path(current_user.id) %>&nbsp
+
+  <%# if current_user.has_role? :seller %>
+  <%#= button_to "Destroy", user_products_path(current_user, [:products]), method: :delete, data: { confirm: "Are you sure?" } %> 
+
+<% else %>
+
+    <p> signed as buyer </p>
+
+<% end %>
+    
+    <%= link_to "see all product", user_products_path(current_user.id)%><br><br>
+    <%= link_to "Edit", edit_user_registration_path %>
+    <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+
+    <%#debugger%>
+    <%#= link_to "Show all Comments", user_product_comments_path(current_user, [:products])  %>
+
+<%else%>
+
+    <%= link_to "Sigup", new_user_registration_path %>
+    <%= link_to "Login", user_session_path %>
+
+<%end%>   

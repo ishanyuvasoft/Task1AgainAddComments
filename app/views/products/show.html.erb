@@ -1,0 +1,29 @@
+<h2>Show Products</h2>
+<%#debugger%>	
+
+<ul>
+
+  <% @products.each do |product| %>
+
+  <li>
+    <%= product.id %>
+    <%= product.name %>
+    <%= product.price %>
+    <%#= render 'comments/form' %>
+
+    <% if current_user.has_role? :seller %>
+    <%= link_to "create comment", new_user_product_comment_path(current_user,product.id) %>
+
+    <%= link_to "Destroy", user_product_path(product_id:product.id), method: :delete, data: { confirm: "Are you sure?" } %>
+    <%end%>
+  </li>
+
+  <% end %>
+
+</ul>
+<%= link_to "Back", root_path(@product) %>
+
+
+
+
+

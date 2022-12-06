@@ -1,0 +1,23 @@
+<h1>Add New Comment</h1>
+
+
+<%= form_with model: @comment, url: user_product_comments_path do |f| %>
+
+<div>
+	<%= f.label :title %><br>
+	<%= f.text_field :title %>
+</div>
+<%#debugger%>
+<%#f.hidden_field :user_id, value:  current_user.id %>
+<%#f.hidden_field :product_id, value: params[:product_id]%>
+
+<div>
+	<%#debugger%>
+	<%= f.submit "Submit" %>
+	<%= link_to "Show Comments", user_product_comments_path %><br>
+	<br>
+	<%= link_to "Back", user_products_path(current_user,@comment) %>
+</div>
+
+<% end %>
+

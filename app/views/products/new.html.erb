@@ -1,0 +1,22 @@
+<h1>Add New Product</h1>
+
+<%= form_with model: @product , url: user_products_path, method: :post do |u| %>
+
+<div>
+	<%= u.label :name %><br>
+	<%= u.text_field :name %>
+</div>
+
+<div>
+	<%= u.label :price %><br>
+	<%= u.text_field :price %>
+</div>
+
+<div>
+	<%= u.submit "Submit" %>
+	<%= link_to "Back", root_path(@product) %>
+	<%# debugger %>
+</div>
+
+
+<% end %>

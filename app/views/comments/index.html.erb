@@ -1,0 +1,17 @@
+<h1>Comments Index</h1>
+
+<ul>
+
+  <% @comments.each do |comment| %>
+
+  <li>
+    <%= comment.title %>
+  </li>
+  <%#debugger%>
+  <%= link_to "Delete", user_product_comment_path(current_user,comment.product_id,comment.id), method: :delete %>
+</ul>
+
+<%end%>
+<br><br>
+
+<%= link_to "Back",  new_user_product_comment_path(current_user) %>
